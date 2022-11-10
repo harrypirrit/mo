@@ -4,28 +4,224 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 <html>
 
-    <canvas id="myChart" style="width:100%;max-width:700px">
-    
-        const config = {
-            type: 'doughnut',
-            data: data,
-            options: {
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: 'top',
-                },
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgb(110, 25, 50);
+    }
+    .chartMenu p {
+        padding: 0px;
+        font-size: 20px;
+    }
+    .chartCard {
+        width: 100vw;
+        height: 75%;
+        background: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .chartBox {
+        width: 700px;
+        padding: 0px;
+        border-radius: 0px;
+        border: solid 3px rgb(0, 0, 0);
+        background: white;
+    }
+</style>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+
+    <h1 style="text-align: center; border-top: 50px">Harry's Movember Page</h1>
+    <br>
+    <h1 style="text-align: center; border-top: 50px; color: limegreen">Goal Progress : $520 / $1000 </h1>
+<div class="chartCard" style="">
+    <div class="chartBox">
+        <canvas id="pushupChart"></canvas>
+    </div>
+    <div class="chartBox">
+        <canvas id="situpChart"></canvas>
+    </div>
+    <div class="chartBox">
+        <canvas id="runningChart"></canvas>
+    </div>
+    <div class="chartBox">
+        <canvas id="moneyChart"></canvas>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // setup
+    const dataPushup = {
+        labels: ['Pushups completed', 'Pushups to do'],
+        datasets: [{
+            label: 'Weekly Sales',
+            data: [945, 2055],
+            backgroundColor: [
+                'rgba(26,152,255,0.8)',
+                'rgba(255,26,104,0.8)',
+
+            ],
+            borderColor: [
+                'rgba(26,152,255,0.8)',
+                'rgba(255,26,104,0.8)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // config
+    const configPushup = {
+        type: 'doughnut',
+        data: dataPushup,
+        options: {
+            plugins: {
                 title: {
-                  display: true,
-                  text: 'Chart.js Doughnut Chart'
+                    display: true,
+                    text: 'Pushups: 945 / 3000'
                 }
-              }
-            },
-          };
+            }
+        }
+    };
 
-    </canvas>
+    // render init block
+    const pushupChart = new Chart(
+        document.getElementById('pushupChart'),
+        configPushup
+    );
 
 
 
+    // setup
+    const dataSitup = {
+        labels: ['Situps completed', 'Situps to do'],
+        datasets: [{
+            label: 'Weekly Sales',
+            data: [210 , 790],
+            backgroundColor: [
+                'rgba(255,213,0,0.94)',
+                'rgba(255,26,104,0.8)',
+            ],
+            borderColor: [
+                'rgba(255,213,0,0.94)',
+                'rgba(255,26,104,0.8)',
+            ],
+            borderWidth: 1
+        }]
+    };
 
-</html.>
+    // config
+    const configSitup = {
+        type: 'doughnut',
+        data: dataSitup,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Situps: 210 / 1000'
+                }
+            }
+        }
+    };
+
+    // render init block
+    const situpChart = new Chart(
+        document.getElementById('situpChart'),
+        configSitup
+    );
+
+    // setup
+    const dataRunning = {
+        labels: ['KMs completed', 'KMs to go'],
+        datasets: [{
+            label: 'Weekly Sales',
+            data: [7 , 53],
+            backgroundColor: [
+                'rgba(1,60,255,0.94)',
+                'rgba(255,26,104,0.8)',
+            ],
+            borderColor: [
+                'rgba(255,213,0,0.94)',
+                'rgba(255,26,104,0.8)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // config
+    const configRunning = {
+        type: 'doughnut',
+        data: dataRunning,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Running : 7KM / 60KM'
+                }
+            }
+        }
+    };
+
+    // render init block
+    const runningChart = new Chart(
+        document.getElementById('runningChart'),
+        configRunning
+    );
+
+    // setup
+    const data = {
+        labels: ['Money donated', 'Money to collect'],
+        datasets: [{
+            label: 'Weekly Sales',
+            data: [550, 450],
+            backgroundColor: [
+                'rgb(140,187,101)',
+                'rgb(213,253,185)',
+
+            ],
+            borderColor: [
+                'rgb(140,187,101)',
+                'rgb(0,0,0)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // config
+    const configMoney = {
+        type: 'doughnut',
+        data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Money Raised: $550/$1000'
+                }
+            }
+            }
+    };
+
+    // render init block
+    const moneyChart = new Chart(
+        document.getElementById('moneyChart'),
+        configMoney
+    );
+</script>
+<embed src="" autostart>
+
+</embed>
+</body>
+
+
+</html>
