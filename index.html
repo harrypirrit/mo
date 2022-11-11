@@ -25,7 +25,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     }
     .chartCard {
         width: 100vw;
-        height: 50%;
+        height: 60%;;
         border: 0px;
         padding: 0px;
         background: rgba(255, 255, 255, 0.00);
@@ -56,9 +56,10 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     <div class="strokeme">
     <h1 style="text-align: center; border-top: 50px;">Harry's Movember Page</h1>
     <br>
-    <h1 style="text-align: center; border-top: 50px; color: limegreen">Goal Progress : $520 / $1000 </h1>
+    <h1 style="text-align: center; border-top: 50px; color: limegreen">Goal Progress : $550 / $1000 </h1>
     </div>
 
+    <br>
     <br>
     <a href="https://nz.movember.com/mospace/14875763" class="btn btn-primary" role="button">Donate Here</a>
 <div class="chartCard" style="">
@@ -75,14 +76,15 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         <canvas id="moneyChart"></canvas>
     </div>
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
 
 <script>
-    Chart.pluginService.register({
+    Chart.register({
+        id: 'doughnut-centertext',
         beforeDraw: function(chart) {
             if (chart.config.options.elements.center) {
                 // Get ctx from string
-                var ctx = chart.chart.ctx;
+                var ctx = chart.ctx;
 
                 // Get options from the center object in options
                 var centerConfig = chart.config.options.elements.center;
@@ -91,18 +93,18 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 var color = centerConfig.color || '#000';
                 var maxFontSize = centerConfig.maxFontSize || 75;
                 var sidePadding = centerConfig.sidePadding || 20;
-                var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
+                var sidePaddingCalculated = (sidePadding / 100) * (chart._metasets[chart._metasets.length-1].data[0].innerRadius * 2)
                 // Start with a base font of 30px
                 ctx.font = "30px " + fontStyle;
 
                 // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
                 var stringWidth = ctx.measureText(txt).width;
-                var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+                var elementWidth = (chart._metasets[chart._metasets.length-1].data[0].innerRadius * 2) - sidePaddingCalculated;
 
                 // Find out how much the font can grow in width.
                 var widthRatio = elementWidth / stringWidth;
                 var newFontSize = Math.floor(30 * widthRatio);
-                var elementHeight = (chart.innerRadius * 2);
+                var elementHeight = (chart._metasets[chart._metasets.length-1].data[0].innerRadius * 2);
 
                 // Pick a new font size so it will not be larger than the height of label.
                 var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
@@ -191,9 +193,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         type: 'doughnut',
         data: dataPushup,
         options: {
+            plugins: {
             title: {
                 display: true,
                 text: 'Pushups: '+pushups+' / 3000'
+            },
             },
                 elements: {
                     center: {
@@ -243,10 +247,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         type: 'doughnut',
         data: dataSitup,
         options: {
-
-            title: {
-                display: true,
-                text: 'Situps: 210 / 1000'
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Situps: 210 / 1000'
+                },
             },
             elements: {
                 center: {
@@ -293,10 +298,12 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         type: 'doughnut',
         data: dataRunning,
         options: {
+            plugins: {
                 title: {
                     display: true,
-                    text: 'Running : '+running+'KM / 60KM'
+                    text: 'Running : ' + running + 'KM / 60KM'
                 },
+            },
             elements: {
                 center: {
                     text: runningPercent,
@@ -343,10 +350,12 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         type: 'doughnut',
         data,
         options: {
+            plugins: {
                 title: {
                     display: true,
-                    text: 'Money Raised: $'+money+' / $1000'
+                    text: 'Money Raised: $' + money + ' / $1000'
                 },
+            },
             elements: {
                 center: {
                     text: moneyPercent,
