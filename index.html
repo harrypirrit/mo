@@ -78,11 +78,13 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     // setup
+    const pushups = 945;
+    const pushupsLeft = (3000-pushups);
     const dataPushup = {
         labels: ['Pushups completed', 'Pushups to do'],
         datasets: [{
             label: 'Weekly Sales',
-            data: [945, 2055],
+            data: [pushups, pushupsLeft],
             backgroundColor: [
                 'rgba(26,152,255,0.8)',
                 'rgba(255,26,104,0.8)',
@@ -119,11 +121,13 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 
     // setup
+    const situps = 210;
+    const situpsLeft = (1000-situps);
     const dataSitup = {
         labels: ['Situps completed', 'Situps to do'],
         datasets: [{
             label: 'Weekly Sales',
-            data: [210 , 790],
+            data: [situps , situpsLeft],
             backgroundColor: [
                 'rgba(255,213,0,0.94)',
                 'rgba(255,26,104,0.8)',
@@ -157,11 +161,13 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     );
 
     // setup
+    const running = 7;
+    const runningLeft = (60-running);
     const dataRunning = {
         labels: ['KMs completed', 'KMs to go'],
         datasets: [{
             label: 'Weekly Sales',
-            data: [7 , 53],
+            data: [running , runningLeft],
             backgroundColor: [
                 'rgba(1,60,255,0.94)',
                 'rgba(255,26,104,0.8)',
@@ -195,11 +201,13 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     );
 
     // setup
+    const money = 550;
+    const moneyLeft = (1000-money);
     const data = {
         labels: ['Money donated', 'Money to collect'],
         datasets: [{
             label: 'Weekly Sales',
-            data: [550, 450],
+            data: [money, moneyLeft],
             backgroundColor: [
                 'rgb(140,187,101)',
                 'rgb(213,253,185)',
