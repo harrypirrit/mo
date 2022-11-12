@@ -377,9 +377,22 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         configMoney
     );
 </script>
-<audio controls autoplay>
-    <source src="livin.mp3" type="audio/mpeg">
-</audio>
+    <audio id="myAudio">
+        <source src="livin.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <a class="btn btn-warning btn-lg" role="button" onclick="playAudio()">PLAY MUSIC</a>
+    <script>
+        var x = document.getElementById("myAudio");
+        function playAudio() {
+            x.play();
+        }
+        function pauseAudio() {
+            x.pause();
+        }
+    </script>
+</audio></h3>
+
 </body>
 
 
