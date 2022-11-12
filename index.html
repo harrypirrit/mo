@@ -166,8 +166,13 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
 
 <script>
+    // variables
+    const pushups = 1065; // -> 1205
+    const situps = 370;
+    const running = 13;
+    const money = 550;
+
     // setup
-    const pushups = 1065;
     const pushupsLeft = (3000-pushups);
     const dataPushup = {
         labels: ['Pushups completed', 'Pushups to do'],
@@ -222,7 +227,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 
     // setup
-    const situps = 210;
     const situpsLeft = (1000-situps);
     const dataSitup = {
         labels: ['Situps completed', 'Situps to do'],
@@ -273,7 +277,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     );
 
     // setup
-    const running = 13;
     const runningLeft = (60-running);
     const dataRunning = {
         labels: ['KMs completed', 'KMs to go'],
@@ -324,7 +327,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     );
 
     // setup
-    const money = 550;
     const moneyLeft = (1000-money);
     const data = {
         labels: ['Money donated', 'Money to collect'],
@@ -375,7 +377,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         configMoney
     );
 </script>
-
 <audio controls autoplay>
     <source src="livin.mp3" type="audio/mpeg">
 </audio>
